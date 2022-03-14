@@ -19,7 +19,7 @@ class TutorialDataService {
     return http.delete(`/tutorials`);
   }
   findByTitle(title) {
-    return http.get(`/tutorials?title=${title}`);
+    return http.get(`/search?title=${title}`);
   }
 }
 export default new TutorialDataService();
