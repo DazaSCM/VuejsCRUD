@@ -12,7 +12,8 @@ class TutorialsController < ApplicationController
   def create
     @tuto = Tuto.create(
       title: params[:title],
-      description: params[:description]
+      description: params[:description],
+      status: false
     )
     render json: @tuto
   end
@@ -21,7 +22,8 @@ class TutorialsController < ApplicationController
     @tuto = Tuto.find(params[:id])
     @tuto.update(
       title: params[:title],
-      description: params[:description]
+      description: params[:description],
+      status: params[:published]
     )
     render json: @tuto
   end

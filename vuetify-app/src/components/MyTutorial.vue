@@ -29,11 +29,11 @@
       >
         Publish
       </v-btn>
-      <v-btn color="error" small class="mr-2" @click="deleteTutorial">
-        Delete
-      </v-btn>
-      <v-btn color="success" small @click="updateTutorial">
+      <v-btn color="success" small class="mr-2" @click="updateTutorial">
         Update
+      </v-btn>
+      <v-btn color="error" small @click="goBack">
+        goBack
       </v-btn>
     </v-form>
     <p class="mt-3">{{ message }}</p>
@@ -89,16 +89,9 @@ export default {
           console.log(e);
         });
     },
-    deleteTutorial() {
-      TutorialDataService.delete(this.currentTutorial.id)
-        .then((response) => {
-          console.log(response.data);
-          this.$router.push({ name: "tutorials" });
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
+    goBack() {
+      this.$router.push({ name: "tutorials"});
+    }
   },
   mounted() {
     this.message = "";

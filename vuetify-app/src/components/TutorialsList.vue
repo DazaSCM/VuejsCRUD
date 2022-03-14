@@ -1,7 +1,7 @@
 <template>
   <v-row align="center" class="list px-3 mx-auto">
     <v-col cols="12" md="8">
-      <v-text-field v-model="title" label="Search by Title"></v-text-field>
+      <v-text-field v-model="title" @keyup="isClear" label="Search by Title"></v-text-field>
     </v-col>
     <v-col cols="12" md="4">
       <v-btn small @click="searchTitle">
@@ -12,7 +12,7 @@
       <v-card class="mx-auto" tile>
         <v-card-title>Tutorials</v-card-title>
         <v-data-table
-          :headers="headers"
+          :headers="header"
           :items="tutorials"
           disable-pagination
           :hide-default-footer="true"
@@ -23,7 +23,7 @@
           </template>
         </v-data-table>
         <v-card-actions v-if="tutorials.length > 0">
-          <v-btn small color="error" @click="removeAllTutorials">
+          <v-btn small color="error" class="mr-2" @click="removeAllTutorials">
             Remove All
           </v-btn>
         </v-card-actions>
@@ -39,12 +39,13 @@ export default {
     return {
       tutorials: [],
       title: "",
-      headers: [
+      header: [
         { text: "Title", align: "start", sortable: false, value: "title" },
         { text: "Description", value: "description", sortable: false },
         { text: "Status", value: "status", sortable: false },
         { text: "Actions", value: "actions", sortable: false },
       ],
+      isSearch: false
     };
   },
   methods: {
@@ -98,9 +99,16 @@ export default {
         id: tutorial.id,
         title: tutorial.title.length > 30 ? tutorial.title.substr(0, 30) + "..." : tutorial.title,
         description: tutorial.description.length > 30 ? tutorial.description.substr(0, 30) + "..." : tutorial.description,
-        status: tutorial.published ? "Published" : "Pending",
+        status: tutorial.status == true ? "Published" : "Pending",
       };
     },
+    isClear(){
+      console.log(this.title);
+      if(!this.title){
+        console.log("title is"+this.title);
+        this.retrieveTutorials();
+      }
+    }
   },
   mounted() {
     this.retrieveTutorials();

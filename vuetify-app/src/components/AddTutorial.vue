@@ -27,7 +27,7 @@
           Click the button to add new Tutorial.
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="success" @click="newTutorial">Add</v-btn>
+          <v-btn color="success" @click="goBack">Go Back</v-btn>
         </v-card-actions>
       </v-card>
     </div>
@@ -68,6 +68,9 @@ export default {
       this.submitted = false;
       this.tutorial = {};
     },
+    goBack() {
+      this.$router.push({ name: "tutorials"});
+    }
   },
 };
 </script>
