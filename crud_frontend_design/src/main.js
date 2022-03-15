@@ -10,6 +10,9 @@ import App from './App.vue';
 import MenuIndex from './components/MenuIndex.vue';
 import MenuCreate from './components/MenuCreate.vue';
 import MenuUpdate from './components/MenuUpdate.vue';
+import UserIndex from './components/UserIndex.vue';
+import SignUp from './components/SignUp.vue';
+import SignIn from './components/SignIn.vue';
 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
@@ -17,6 +20,14 @@ Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;
 
 const routes = [
+  {
+    name: 'SignIn',
+    path: '/',
+    component: SignIn,
+    meta: {
+      hideNavbar: true,
+    }
+  },
   {
     name: 'MenuIndex',
     path: '/index',
@@ -32,6 +43,16 @@ const routes = [
     path: '/update',
     component: MenuUpdate
   },
+  {
+    name: 'UserIndex',
+    path: '/users',
+    component: UserIndex
+  },
+  {
+    name: 'SignUp',
+    path: '/signup',
+    component: SignUp
+  }
 ];
 
 const router = new VueRouter({ mode: 'history', routes: routes });

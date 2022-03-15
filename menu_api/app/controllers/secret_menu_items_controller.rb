@@ -1,4 +1,27 @@
 class SecretMenuItemsController < ApplicationController
+
+  def get_all_users
+    @users = User.all
+    render json: @users
+  end
+
+  def sign_up 
+    @user = User.create(
+      email: params[:email],
+      password: params[:password]
+    )
+    render json: @user
+  end
+
+  def sign_in
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      render json: @user
+    else
+      render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
+    end
+  end
+
   def index
     @secretMenuItems = SecretMenuItem.all 
     render json: @secretMenuItems
