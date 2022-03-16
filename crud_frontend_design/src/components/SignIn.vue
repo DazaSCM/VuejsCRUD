@@ -38,7 +38,7 @@ export default {
            let uri = 'http://localhost:3000/sign_in';
             this.axios.post(uri, this.user).then((response) => {
                 this.$router.push({name: 'UserIndex'});
-                console.log(response.data)
+                localStorage.setItem("token", response.data.token);
             });
         }
     }

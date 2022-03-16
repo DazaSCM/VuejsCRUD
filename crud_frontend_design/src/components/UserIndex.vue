@@ -38,7 +38,10 @@
         fetchUsers()
         {
           let uri = 'http://localhost:3000/get_all_users';
-          this.axios.get(uri).then((response) => {
+          let api_header = {headers: {
+            'Authorization': localStorage.getItem('token')
+              }};
+          this.axios.get(uri, api_header).then((response) => {
               this.users = response.data;
           });
         }

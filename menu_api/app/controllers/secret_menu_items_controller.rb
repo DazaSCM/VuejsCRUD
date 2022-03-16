@@ -1,4 +1,5 @@
 class SecretMenuItemsController < ApplicationController
+  before_action :authorize_request, only: [:get_all_users]
 
   def get_all_users
     @users = User.all
@@ -16,7 +17,10 @@ class SecretMenuItemsController < ApplicationController
   def sign_in
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
-      render json: @user
+      token = JsonWebToken.encode(user_id: @user.id)
+      time = Time.now + 24.hours.to_i
+      render json: { token: token, exp: time.strftime("%m-%d-%Y %H:%M"),
+                     username: @user.email }, status: :ok
     else
       render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
     end

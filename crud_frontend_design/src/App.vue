@@ -12,7 +12,7 @@
             <router-link :to="{ name: 'MenuIndex' }" class="nav-link">All Items</router-link>
           </li>
         </ul>
-      <router-link :to="{ name: 'SignIn' }" class="nav-tabs nav-item nav-link">Log out</router-link>
+      <router-link :to="{ name: 'SignIn' }" class="nav-tabs nav-item nav-link"><span @click="logout">Log out</span></router-link>
     </div>
     
     <transition name="fade">
@@ -26,6 +26,11 @@
 <script>
 
 export default {
+  methods: {
+    logout (){
+      localStorage.removeItem("token");
+    }
+  }
 }
 </script>
 
