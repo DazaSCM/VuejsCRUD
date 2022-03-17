@@ -59,9 +59,29 @@ const router = new VueRouter({ mode: 'history', routes: routes });
 
 router.beforeResolve((to, from, next) => {
   if (to.name) {
-      NProgress.start()
+    NProgress.start()
   }
   next()
+});
+
+router.beforeEach((to, from, next) => {
+  console.log("to - ", to.name, "from - ", from.name);
+  if (!localStorage.getItem('token')) {
+    if (to.name == 'SignIn' || to.name == 'SignUp') {
+      next()
+    }
+    else {
+      next({ name: 'SignIn'})
+    }
+  }
+  else {
+    if (to.name == 'SignIn' || to.name == 'SignUp') {
+      next ({name: 'UserIndex'})
+    }
+    else {
+      next()
+    }
+  }
 });
 
 router.afterEach(() => {

@@ -1,5 +1,5 @@
 class SecretMenuItemsController < ApplicationController
-  before_action :authorize_request, only: [:get_all_users]
+  before_action :authorize_request, except: [:sign_in, :sign_up, :destroy]
 
   def get_all_users
     @users = User.all

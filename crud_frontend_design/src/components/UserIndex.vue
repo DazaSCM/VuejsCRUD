@@ -3,19 +3,19 @@
     <h1>Users</h1>
 
     <table class="table table-hover">
-        <thead>
+      <thead>
         <tr>
-            <td>ID</td>
-            <td>Email</td>
+          <td>ID</td>
+          <td>Email</td>
         </tr>
-        </thead>
+      </thead>
 
-        <tbody>
-            <tr v-for="user in users" :key="user.id">
-                <td>{{ user.id}}</td>
-                <td>{{ user.email }}</td>
-            </tr>
-        </tbody>
+      <tbody>
+        <tr v-for="user in users" :key="user.id">
+          <td>{{ user.id}}</td>
+          <td>{{ user.email }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
@@ -24,27 +24,27 @@
 
   export default {
     data(){
-        return{
-            users: []
-        }
+      return{
+        users: []
+      }
     },
 
     created: function()
     {
-        this.fetchUsers();
+      this.fetchUsers();
     },
 
     methods: {
-        fetchUsers()
-        {
-          let uri = 'http://localhost:3000/get_all_users';
-          let api_header = {headers: {
-            'Authorization': localStorage.getItem('token')
-              }};
-          this.axios.get(uri, api_header).then((response) => {
-              this.users = response.data;
-          });
-        }
+      fetchUsers()
+      {
+        let uri = 'http://localhost:3000/get_all_users';
+        let api_header = {headers: {
+          'Authorization': localStorage.getItem('token')
+            }};
+        this.axios.get(uri, api_header).then((response) => {
+            this.users = response.data;
+        });
+      }
     }
   }
 </script>
