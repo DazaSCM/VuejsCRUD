@@ -7,6 +7,7 @@
         <tr>
           <td>ID</td>
           <td>Email</td>
+          <td>Action</td>
         </tr>
       </thead>
 
@@ -14,6 +15,7 @@
         <tr v-for="user in users" :key="user.id">
           <td>{{ user.id}}</td>
           <td>{{ user.email }}</td>
+          <td><button @click="this.$router.push({ name: 'UserDetail', params: { id: user.id, email: user.email, image_url: user.image } })">Details</button></td>
         </tr>
       </tbody>
     </table>

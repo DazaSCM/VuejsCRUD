@@ -13,6 +13,7 @@ import MenuUpdate from './components/MenuUpdate.vue';
 import UserIndex from './components/UserIndex.vue';
 import SignUp from './components/SignUp.vue';
 import SignIn from './components/SignIn.vue';
+import UserDetail from './components/UserDetail.vue';
 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
@@ -55,6 +56,11 @@ const routes = [
     meta: {
       hideNavbar: true,
     }
+  },
+  {
+    name: 'UserDetail',
+    path: '/details',
+    component: UserDetail
   }
 ];
 
