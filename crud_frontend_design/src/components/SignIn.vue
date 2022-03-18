@@ -5,7 +5,7 @@
         <h3>Sign In</h3>
       </div>
       <div class="card-body">
-        <form v-on:submit.prevent="signIn">
+        <form class="mb-2" v-on:submit.prevent="signIn">
           <div class="form-group mb-3">
             <label class="mb-2">Enter Email:</label>
             <input type="text" class="form-control" v-model="user.email"/>
@@ -18,6 +18,7 @@
             <input type="submit" class="btn btn-primary" value="Log In"/>
           </div>
         </form>
+        <p>Do not have an account? <router-link :to="{ name: 'SignUp' }">Sign Up</router-link></p>
       </div>
     </div>
   </div>

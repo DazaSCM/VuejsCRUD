@@ -51,7 +51,10 @@ const routes = [
   {
     name: 'SignUp',
     path: '/signup',
-    component: SignUp
+    component: SignUp,
+    meta: {
+      hideNavbar: true,
+    }
   }
 ];
 
