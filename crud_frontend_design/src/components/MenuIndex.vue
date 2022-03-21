@@ -35,7 +35,7 @@
         items: [],
         api_header : {headers: {
           'Authorization': localStorage.getItem('token')
-          }}
+        }}
       }
     },
 

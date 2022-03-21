@@ -6,6 +6,11 @@ class SecretMenuItemsController < ApplicationController
     render json: @users, methods: [:image_url]
   end
 
+  def get_deleted_users
+    @users = User.only_deleted
+    render json: @users
+  end
+
   def sign_up 
     @user = User.create(
       email: params[:email],
@@ -25,6 +30,12 @@ class SecretMenuItemsController < ApplicationController
     else
       render json: { errors: { 'email or password' => ['is invalid'] } }, status: :unprocessable_entity
     end
+  end
+
+  def soft_delete
+    @user = User.find(params[:id])
+    @user = @user.destroy
+    render json: "successfully remove", status: :ok
   end
 
   def index

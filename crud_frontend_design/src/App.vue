@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div id="app">
     <div v-if="!$route.meta.hideNavbar" class="navbar navbar-expand-sm bg-light d-flex justify-content-between">
         <ul class="nav nav-tabs">
           <li class="nav-item">
@@ -16,7 +16,7 @@
     </div>
     
     <transition name="fade">
-      <div class="gap">
+      <div>
         <router-view></router-view>        
       </div>
     </transition>
@@ -40,8 +40,5 @@ export default {
     }
     .fade-enter, .fade-leave-active {
       opacity: 0
-    }
-    .gap {
-      margin-top: 50px;
     }
 </style>

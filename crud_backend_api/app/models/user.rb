@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_secure_password
   has_one_attached :image
+  acts_as_paranoid
 
   def image_url
     #Get the URL of the associated image

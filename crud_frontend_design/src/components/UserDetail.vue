@@ -1,9 +1,9 @@
 <template>
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="image_url" alt="Card image cap">
+  <div class="card m-auto text-center" style="width: 23rem;">
+    <img v-bind:src="image_url" class="card-img-top">
     <div class="card-body">
-      <h5 class="card-title">User ID: {{ this.id }}</h5>
-      <p class="card-text">{{ this.name }}</p>
+      <h5 class="card-title">User ID: {{ id }}</h5>
+      <p class="card-text">{{ email }}</p>
       <router-link :to="{ name: 'UserIndex' }" class="btn btn-primary">Go Back</router-link>
     </div>
 </div>
@@ -11,12 +11,14 @@
 
 <script>
 export default {
-  data(){
-      return{
-        image_url: this.$route.params.image_url,
-        id: this.$route.params.id,
-        name: this.$route.params.name
-      }
+  data() {
+    console.log(this.$route.query.user);
+    var user= JSON.parse(this.$route.query.user);
+    return {
+      id: user.id,
+      email: user.email,
+      image_url: user.image_url
     }
+  }
 }
 </script>

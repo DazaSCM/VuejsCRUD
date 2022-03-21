@@ -1,5 +1,5 @@
 <template>
-  <div class="container w-400">
+  <div class="container w-200 mt-5">
     <div class="card">
       <div class="card-header">
         <h3>Sign In</h3>

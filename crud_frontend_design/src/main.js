@@ -14,6 +14,10 @@ import UserIndex from './components/UserIndex.vue';
 import SignUp from './components/SignUp.vue';
 import SignIn from './components/SignIn.vue';
 import UserDetail from './components/UserDetail.vue';
+import BootstrapLogin1 from './components/BootstrapLogin1.vue';
+import BootstrapLogin2 from './components/BootstrapLogin2.vue';
+import BootstrapRegister from './components/BootstrapRegister.vue';
+import RecycleBin from './components/RecycleBin.vue';
 
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios);
@@ -61,6 +65,35 @@ const routes = [
     name: 'UserDetail',
     path: '/details',
     component: UserDetail
+  },
+  {
+    name: 'RecycleBin',
+    path: '/recycle_bin',
+    component: RecycleBin
+  },
+  {
+    name: 'BootstrapLogin1',
+    path: '/bs_login_1',
+    component: BootstrapLogin1,
+    meta: {
+      hideNavbar: true,
+    }
+  },
+  {
+    name: 'BootstrapLogin2',
+    path: '/bs_login_2',
+    component: BootstrapLogin2,
+    meta: {
+      hideNavbar: true,
+    }
+  },
+  {
+    name: 'BootstrapRegister',
+    path: '/bs_register_1',
+    component: BootstrapRegister,
+    meta: {
+      hideNavbar: true,
+    }
   }
 ];
 
