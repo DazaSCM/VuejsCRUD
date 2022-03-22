@@ -48,7 +48,8 @@ export default {
       let uri = 'http://localhost:3000/secret_menu_items';
       this.axios.post(uri, this.item, this.api_header).then((response) => {
           this.$router.push({name: 'MenuIndex'});
-          console.log(response.data)
+          console.log(response.data);
+          console.log(this.api_header);
       });
   },
     goToHome(){

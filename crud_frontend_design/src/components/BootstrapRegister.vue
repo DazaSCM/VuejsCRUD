@@ -1,25 +1,43 @@
 <template>
-  <section class="vh-100 gradient-custom">
+  <section class="vh-100">
     <div class="container py-5 h-100">
       <div class="row justify-content-center align-items-center h-100">
         <div class="col-12 col-lg-9 col-xl-7">
-          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-            <div class="card-body p-4 p-md-5">
-              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+          <div class="shadow p-3 mb-5 bg-white rounded card-registration">
+            <div class="card-body p-4 p-md-2">
+              <h3 class="text-center pb-md-0 mb-md-4">Sign Up Account</h3>
+              <hr class="mb-md-4">
               <form>
 
                 <div class="row">
                   <div class="col-md-6 mb-4">
 
                     <div class="form-outline">
-                      <input type="text" id="firstName" class="form-control form-control-lg" placeholder="First Name" />
+                      <input type="text" id="name" class="form-control form-control-lg" placeholder="Enter Name" />
                     </div>
 
                   </div>
                   <div class="col-md-6 mb-4">
 
                     <div class="form-outline">
-                      <input type="text" id="lastName" class="form-control form-control-lg" placeholder="Last Name" />
+                      <input type="text" id="email" class="form-control form-control-lg" placeholder="Enter Email" />
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+
+                    <div class="form-outline">
+                      <input type="password" id="password" class="form-control form-control-lg" placeholder="Enter Password" />
+                    </div>
+
+                  </div>
+                  <div class="col-md-6 mb-4">
+
+                    <div class="form-outline">
+                      <input type="password" id="confirm_password" class="form-control form-control-lg" placeholder="Re-enter Passwrod" />
                     </div>
 
                   </div>
@@ -40,18 +58,18 @@
                   </div>
                   <div class="col-md-6 mb-4">
 
-                    <h6 class="mb-2 pb-1">Gender: </h6>
+                    <h6 class="mb-2 pb-1">User Type: </h6>
 
                     <div class="form-check form-check-inline">
                       <input
                         class="form-check-input"
                         type="radio"
                         name="inlineRadioOptions"
-                        id="femaleGender"
-                        value="option1"
+                        id="user"
+                        value="1"
                         checked
                       />
-                      <label class="form-check-label" for="femaleGender">Female</label>
+                      <label class="form-check-label" for="user">User</label>
                     </div>
 
                     <div class="form-check form-check-inline">
@@ -59,21 +77,10 @@
                         class="form-check-input"
                         type="radio"
                         name="inlineRadioOptions"
-                        id="maleGender"
-                        value="option2"
+                        id="admin"
+                        value="0"
                       />
-                      <label class="form-check-label" for="maleGender">Male</label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="inlineRadioOptions"
-                        id="otherGender"
-                        value="option3"
-                      />
-                      <label class="form-check-label" for="otherGender">Other</label>
+                      <label class="form-check-label" for="admin">Admin</label>
                     </div>
 
                   </div>
@@ -83,14 +90,14 @@
                   <div class="col-md-6 mb-4 pb-2">
 
                     <div class="form-outline">
-                      <input type="email" id="emailAddress" class="form-control form-control-lg" placeholder="Email Address" />
+                      <input type="text" id="address" class="form-control form-control-lg" placeholder="Enter Address" />
                     </div>
 
                   </div>
                   <div class="col-md-6 mb-4 pb-2">
 
                     <div class="form-outline">
-                      <input type="tel" id="phoneNumber" class="form-control form-control-lg" placeholder="Phone Number" />
+                      <input type="tel" id="phoneNumber" class="form-control form-control-lg" placeholder="Enter Phone Number" />
                     </div>
 
                   </div>
@@ -98,19 +105,14 @@
 
                 <div class="row">
                   <div class="col-12">
-
-                    <select class="select form-control-lg">
-                      <option value="1" disabled>Choose option</option>
-                      <option value="2">Subject 1</option>
-                      <option value="3">Subject 2</option>
-                      <option value="4">Subject 3</option>
-                    </select>
-
+                    <label class="form-label" for="customFile">Choose Profile Photo</label>
+                    <input type="file" class="form-control" id="customFile" />
                   </div>
                 </div>
 
-                <div class="mt-4 pt-2">
-                  <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                <div class="mt-4 pt-2 d-flex justify-content-around align-items-center">
+                  <input class="btn btn-outline-primary btn-lg" type="submit" value="Submit" />
+                  <input class="btn btn-outline-warning btn-lg" type="reset" />
                 </div>
 
               </form>
@@ -141,12 +143,15 @@ export default {
   }
 
   .card-registration .select-input.form-control[readonly]:not([disabled]) {
-    font-size: 1rem;
     line-height: 2.15;
     padding-left: .75em;
     padding-right: .75em;
   }
   .card-registration .select-arrow {
     top: 13px;
+  }
+  input{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px !important;
   }
 </style>

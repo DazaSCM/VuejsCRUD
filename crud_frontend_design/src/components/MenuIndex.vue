@@ -52,14 +52,11 @@
           this.items = response.data;
         });
       },
-      refreshItems(){
-        this.fetchItems();
-      },
       deleteItem(id)
       {
         let uri = 'http://localhost:3000/secret_menu_items/'+id;
-        this.axios.delete(uri).then(() => {
-          this.items.splice(this.items.indexOf(id), 1);
+        this.axios.delete(uri, this.api_header).then(() => {
+          this.fetchItems();
         })
       }
     }

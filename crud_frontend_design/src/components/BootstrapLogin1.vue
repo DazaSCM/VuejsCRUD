@@ -9,7 +9,7 @@
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
           <form>
             <div class="text-center">
-              <p class="lead fw-normal mb-0 me-3">Sign in to your account</p>
+              <p class="lead fw-bold mb-0 me-3">Sign in to your account</p>
             </div>
 
             <div class="divider d-flex align-items-center my-4"></div>
@@ -40,8 +40,7 @@
             <div class="text-center text-lg-start mt-4 pt-2">
               <button type="button" class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                  class="link-danger">Register</a></p>
+              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <router-link :to='{name: "BootstrapRegister"}' class="link-danger">Register</router-link></p>
             </div>
 
           </form>

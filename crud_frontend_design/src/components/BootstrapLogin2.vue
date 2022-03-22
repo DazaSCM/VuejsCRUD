@@ -33,8 +33,7 @@
 
               <hr class="my-4">
 
-              <p class="text-center small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                  class="link-danger">Register</a></p>
+              <p class="text-center small fw-bold mt-2 pt-1 mb-0">Don't have an account? <router-link :to='{name: "BootstrapRegister"}' class="link-danger">Register</router-link></p>
 
             </div>
           </div>
@@ -51,6 +50,12 @@ export default {
 </script>
 
 <style>
+  h3 {
+    font-family: 'Times New Roman', Times, serif;
+  }
+  button {
+    padding: 5px 30px !important;
+  }
   .ml-10 {
     margin-left: 10px;
   }

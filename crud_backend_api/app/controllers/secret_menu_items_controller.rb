@@ -1,5 +1,5 @@
 class SecretMenuItemsController < ApplicationController
-  before_action :authorize_request, except: [:sign_in, :sign_up, :destroy]
+  before_action :authorize_request, except: [:sign_in, :sign_up]
 
   def get_all_users
     @users = User.all
@@ -8,7 +8,7 @@ class SecretMenuItemsController < ApplicationController
 
   def get_deleted_users
     @users = User.only_deleted
-    render json: @users
+    render json: @users, status: :ok
   end
 
   def sign_up 
@@ -35,7 +35,20 @@ class SecretMenuItemsController < ApplicationController
   def soft_delete
     @user = User.find(params[:id])
     @user = @user.destroy
-    render json: "successfully remove", status: :ok
+    render json: @user, status: :ok
+  end
+
+  def restore
+    @users = User.only_deleted
+    @user = User.restore(params[:id])
+    render json: @users
+  end
+
+  def permanent_delete
+    @users = User.all
+    @user = User.find(params[:id])
+    @user = @user.really_destroy!
+    render json: @users, status: :ok
   end
 
   def index
