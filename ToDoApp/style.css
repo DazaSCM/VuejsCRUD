@@ -1,0 +1,35 @@
+.post-form {
+  max-width: 535px;
+  margin: 60px auto;
+  background: #efefef;
+  padding: 20px 40px;
+  -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  }
+h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.col-sm-3 {
+  width: unset !important;
+}
+.m-30 {
+  margin-bottom: 30px;
+}
+.input-list {
+  display: -webkit-inline-box;
+  list-style-type: none;
+}
+.main_div {
+  display: -webkit-inline-box;
+}
+.input-box {
+  width: 300px;
+  margin-right: 20px;
+}
+.w-300 {
+  width: 300px;
+}
+.mr-3 {
+  margin-right: 30px;
+}
