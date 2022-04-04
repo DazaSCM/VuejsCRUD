@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Items</h1>
+    <p class="text-center mb-2">Do you want to download data as CSV file? <button class="btn btn-success">Download</button></p>
 
     <table class="table table-hover">
       <thead>
